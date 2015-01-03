@@ -11,6 +11,7 @@ A very simple, non-interactive carousel that can be used either as a WordPress p
 3. Create a carousel using the shortcode *g11-carousel* with optional height and duration parameters.
 
 
+````
     [g11-carousel duration="5"]
     <div style="padding: 10px; background-color: red">Hello world!</div>
     <div style="padding: 10px; background-color: green"><a href="http://wordpress.com">I love WordPress</a></div>
@@ -33,7 +34,7 @@ A very simple, non-interactive carousel that can be used either as a WordPress p
     <img src="/wp-content/uploads/2015/01/halfshell.jpg">
     <img src="/wp-content/uploads/2015/01/cage-dry.jpg">
     [/g11-carousel]
-
+````
 
 ## Standalone
 
@@ -42,7 +43,7 @@ declare elements.  Each carousel must be a DIV with class 'g11-carousel', contai
 DIV with class 'g11-carousel-stage'.  Attributes 'data-height' and 'data-duration' can be
 set on the stage DIV.
 
-
+````
     <link rel='stylesheet' id='g11-carousel-css'  href='/uri-to/g11-carousel/css/g11-carousel.css' type='text/css'  />
     <script type='text/javascript' src='/uri-to/jquery/jquery.js'></script>
     <script type='text/javascript' src='/uri-to/g11-carousel/js/g11-carousel.js'></script>
@@ -75,6 +76,7 @@ set on the stage DIV.
         <img src="/wp-content/uploads/2015/01/cage-dry.jpg"><br />
       </div>
     </div>
+````
 
 ## Screenshot
 
