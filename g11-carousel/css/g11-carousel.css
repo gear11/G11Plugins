@@ -1,0 +1,15 @@
+
+.g11-carousel {
+    overflow: hidden;
+}
+
+.g11-carousel-stage {
+    position: relative;
+    white-space: nowrap;
+    visibility: hidden;
+}
+
+.g11-carousel-stage > * {
+    display: inline-block;
+    width: auto;
+}

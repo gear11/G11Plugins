@@ -1,0 +1,15 @@
+{
+    "description" : "This file is used by NPM to install gulp and other JS tools one time at project setup.  'npm install' in this dir.",
+    "name": "G11Plugins",
+    "version": "1.0.0",
+    "main": "gulpfile.js",
+    "scripts": {
+        "start": "gulp",
+        "build": "gulp build"
+    },
+    "author": "andy@gear11.com",
+    "devDependencies": {
+        "gulp": "~3.8.10",
+        "gulp-zip": "~2.0.2"
+    }
+}
