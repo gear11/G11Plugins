@@ -9,10 +9,10 @@ Author: Gear 11
 Author URI: http://www.gear11.com
 License: GPL 2
 */
-
+const PLUGIN_DIR = 'g11-carousel';
 wp_enqueue_script('jquery');
-wp_enqueue_script('g11-carousel', plugins_url(PLUGIN_NAME) . '/js/g11-carousel.js');
-wp_enqueue_style('g11-carousel', plugins_url(PLUGIN_NAME) . '/css/g11-carousel.css');
+wp_enqueue_script('g11-carousel', plugins_url(PLUGIN_DIR) . '/js/g11-carousel.js');
+wp_enqueue_style('g11-carousel', plugins_url(PLUGIN_DIR) . '/css/g11-carousel.css');
 
 // [g11_carousel] shortcode
 function render_carousel_shortcode($attrs, $content) {
