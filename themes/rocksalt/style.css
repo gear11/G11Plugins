@@ -1,0 +1,132 @@
+/*
+Theme Name: ROCKSALT
+Description: Theme for ROCKSALT restaurants, based on Alpha
+Template: omega
+Version: 1.0.0
+*/
+
+@import url(../omega/style.css);
+
+/*
+   --------------------------------------------------------------------------
+   From Alpha
+   --------------------------------------------------------------------------
+*/
+body {
+    background-color: #333333;
+    color: #666;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.625;
+}
+
+.site-container {
+    margin: 0 auto;
+    max-width: 980px;
+    background-color: #fff;
+}
+
+.site-header {
+    background: none repeat scroll 0 0 #000;
+}
+
+.site-header .wrap {
+    padding: 20px 0 40px;
+}
+
+.site-title a,
+.site-title a:hover {
+    color: #fff;
+}
+
+.nav-primary {
+    background: none repeat scroll 0 0 #000;
+}
+
+.nav-primary a:hover {
+    color: #bbb;
+}
+
+/*
+   --------------------------------------------------------------------------
+   ROCKSALT
+   --------------------------------------------------------------------------
+*/
+h1 {
+    text-align: center;
+}
+
+.entry-content {
+    padding: 0.5em;
+}
+
+#summary {
+  font-weight: bold;
+  margin-top: 1em;
+}
+#detail {
+  margin: 1em 0;
+}
+#locations {
+  background-color: #ffffee;
+  padding: 1em;
+  border: 1px solid silver;
+}
+#locations ul {
+  padding: 0 0 1em 0;
+}
+#locations ul li {
+  float: left;
+  list-style-type: none;
+  margin: 0 1em;
+}
+#locations a {
+  font-size: 14pt;
+}
+
+.clearFix {
+   clear: both;
+}
+
+.site-header .wrap, .wrap .title-area {
+  padding: 0 !important;
+}
+
+
+.site-inner {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+/* So carousel spans white area */
+
+.g11-carousel {
+    margin: 0 -1em;
+}
+
+/* For displaying restaurant top boxes */
+
+.top-box-outer {
+    text-align: center;
+    width: 100%;
+}
+.top-box-inner {
+    display: inline-block;
+    margin: auto;
+}
+
+.top-box {
+
+    border: 1px solid silver;
+    width: 250px;
+    height: 250px;
+}
+
+@media only screen and (min-width: 800px) {
+
+    .top-box {
+        float: left;
+    }
+
+}

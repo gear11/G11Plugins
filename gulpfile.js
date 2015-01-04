@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var zip = require('gulp-zip');
 
-var VERSION = "1.0.0";
+var VERSION = "1.0.1";
 
 var paths = {
   src_glob: './g11*/**',
@@ -11,8 +11,17 @@ var paths = {
 };
 
 gulp.task('zip', function () {
-    gulp.src(paths.src_glob)
+    gulp.src('./g11-carousel*/**')
         .pipe(zip('g11-carousel-'+VERSION+'.zip'))
+        .pipe(gulp.dest('dist'));
+    gulp.src('./g11-is-mobile*/**')
+        .pipe(zip('g11-is-mobile-'+VERSION+'.zip'))
+        .pipe(gulp.dest('dist'));
+    gulp.src('./g11-google-analytics*/**')
+        .pipe(zip('g11-google-analytics-'+VERSION+'.zip'))
+        .pipe(gulp.dest('dist'));
+    gulp.src('./themes/rocksalt*/**')
+        .pipe(zip('rocksalt-'+VERSION+'.zip'))
         .pipe(gulp.dest('dist'));
 });
 

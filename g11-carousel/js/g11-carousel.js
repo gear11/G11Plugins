@@ -17,14 +17,14 @@
         if (height) {
             css.height = height;
         }
-        stage.children().each(function (_, el) {
-            el = $(el);
+        stage.children().each(function (_, e) {
+            var el = $(e);
             if (el.is('br') || (el.is('p') && el.children().length == 0)) {
                 el.remove();
-                return;
+            } else {
+                el.css(css);
+                el.clone().appendTo(stage);
             }
-            el.css(css);
-            el.clone().appendTo(stage);
         });
     }
 
@@ -47,13 +47,12 @@
         // Repeat elements until the stage is at least 2x as wide as the carousel
         var carouselWidth = stage.parent().width();
         while (stageWidth < 2*carouselWidth) {
-            stage.children().each(function (_, el) {
-                if (stageWidth >= 2*carouselWidth) {
-                    return;
+            stage.children().each(function (_, e) {
+                if (stageWidth < 2*carouselWidth) {
+                    var el = $(e);
+                    el.clone().appendTo(stage);
+                    stageWidth += el.width();
                 }
-                el = $(el);
-                el.clone().appendTo(stage);
-                stageWidth += el.width();
             });
         }
 
