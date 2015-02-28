@@ -17,7 +17,8 @@
         if (height) {
             css.height = height;
         }
-        stage.children().each(function (_, e) {
+        var children = stage.children();
+        children.each(function (_, e) {
             var el = $(e);
             if (el.is('br') || (el.is('p') && el.children().length == 0)) {
                 el.remove();
@@ -35,6 +36,7 @@
      * @param stage
      */
     function startStage(stage) {
+        LOG("Starting stage");
 
         //console.log("Starting stage");
         // Calculate stage width and loop width
@@ -42,8 +44,13 @@
         stage.children().each(function (_, el) {
             stageWidth += $(el).width();
         });
+        if (!stageWidth) {
+            console.log("Empty stage; aborting");
+            return;
+        }
         var loopWidth = stageWidth / 2; // Since we duplicated em all
 
+        LOG("Repeating elements");
         // Repeat elements until the stage is at least 2x as wide as the carousel
         var carouselWidth = stage.parent().width();
         while (stageWidth < 2*carouselWidth) {
@@ -62,14 +69,15 @@
             duration = DEFAULT_DURATION;
         }
 
+        LOG("Starting scroll");
         function scroll(start) {
             if (typeof(start) == 'undefined') {
                 start = 0;
             }
             var delta = loopWidth - start;
             var dur = duration * 1000 * (delta / loopWidth);
-            console.log("Starting at "+start+". Animating for "+delta+"px for "+dur+"ms");
-            stage.animate({left: "-=" + delta}, dur, 'linear', function () {
+            LOG("Starting at "+start+". Animating for "+delta+"px for "+dur+"ms");
+            stage.velocity({left: "-=" + delta}, dur, 'linear', function () {
                 stage.css('left', '0px');
                 scroll();
             });
@@ -83,15 +91,23 @@
 
     // On doc ready, find and init stages, and then start stages
     $( document ).ready(function() {
+        LOG("Document ready");
         // Initialize each stage
+        LOG("Initializing stages");
         var $stages = $('.g11-carousel-stage');
         $stages.each(function(_, stage) { initStage($(stage)); });
 
         // Wait half a sec for rendering (so sizes are accurate) and then start
+        LOG("Wait to start stages");
         setTimeout(function() {
+            LOG("Starting stages");
             $stages.each(function(_, stage) { startStage($(stage)); });
         }, 500);
     });
+
+    function LOG(o) {
+        console.log(o);
+    }
 
 })(jQuery);
 //console.log("Loaded carousel");

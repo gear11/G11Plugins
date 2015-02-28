@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: G11 Google Analytics
-Plugin URI: https://github.com/gear11/G11Plugins/g11-google-analytics
+Plugin URI: https://github.com/gear11/G11Plugins
 Description: Inserts the GA analytics tracking script on each page, using Google's recommended snippet.
 Version: 1.0.1
 Author: Gear 11

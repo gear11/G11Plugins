@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: G11 Carousel
-Plugin URI: https://github.com/gear11/G11Plugins/g11-carousel
+Plugin URI: https://github.com/gear11/G11Plugins
 Description: A simple, non-interactive carousel for images and other content.
-             Implements a [g11-carousel] shortcode for displaying contents in a carousel.
+Implements a [g11-carousel] shortcode for displaying contents in a carousel.
 Version: 1.0.1
 Author: Gear 11
 Author URI: http://www.gear11.com
@@ -11,6 +11,7 @@ License: GPL 2
 */
 const PLUGIN_DIR = 'g11-carousel';
 wp_enqueue_script('jquery');
+wp_enqueue_script('velocity', plugins_url(PLUGIN_DIR) . '/js/velocity.min.js');
 wp_enqueue_script('g11-carousel', plugins_url(PLUGIN_DIR) . '/js/g11-carousel.js');
 wp_enqueue_style('g11-carousel', plugins_url(PLUGIN_DIR) . '/css/g11-carousel.css');
 

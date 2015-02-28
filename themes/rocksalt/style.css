@@ -1,17 +1,12 @@
 /*
 Theme Name: ROCKSALT
-Description: Theme for ROCKSALT restaurants, based on Alpha
+Description: A Child Theme of Omega
 Template: omega
-Version: 1.0.0
 */
 
 @import url(../omega/style.css);
 
-/*
-   --------------------------------------------------------------------------
-   From Alpha
-   --------------------------------------------------------------------------
-*/
+/* From Alpha */
 body {
     background-color: #333333;
     color: #666;
@@ -48,11 +43,7 @@ body {
     color: #bbb;
 }
 
-/*
-   --------------------------------------------------------------------------
-   ROCKSALT
-   --------------------------------------------------------------------------
-*/
+/* ROCKSALT */
 h1 {
     text-align: center;
 }
@@ -61,44 +52,60 @@ h1 {
     padding: 0.5em;
 }
 
+.blurb {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
 #summary {
-  font-weight: bold;
-  margin-top: 1em;
+    font-weight: bold;
+    margin-top: 1em;
 }
+
 #detail {
-  margin: 1em 0;
+    margin: 1em 0;
 }
+
 #locations {
-  background-color: #ffffee;
-  padding: 1em;
-  border: 1px solid silver;
+    background-color: #ffffee;
+    padding: 0.5em;
+    border: 1px solid silver;
 }
+
 #locations ul {
-  padding: 0 0 1em 0;
+    padding: 0;
 }
+
 #locations ul li {
-  float: left;
-  list-style-type: none;
-  margin: 0 1em;
+    float: left;
+    list-style-type: none;
+    margin: 0 1em;
 }
+
 #locations a {
-  font-size: 14pt;
+    font-size: 14pt;
 }
 
 .clearFix {
-   clear: both;
+    clear: both;
 }
+
+.entry-header{
+    padding: 10px 0 0;
+}
+
 
 .site-header .wrap, .wrap .title-area {
-  padding: 0 !important;
+    padding: 0 !important;
 }
-
 
 .site-inner {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding: 0 0.5em;
 }
 
+.site-footer {
+    border: none; /* Remove white pixel border */
+}
 /* So carousel spans white area */
 
 .g11-carousel {
@@ -117,16 +124,76 @@ h1 {
 }
 
 .top-box {
-
-    border: 1px solid silver;
     width: 250px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.top-box a  img {
+    border: 1px solid black;
+}
+
+/** Open table **/
+.top-box > div {
+    display: inline-block;
+    margin: auto;
+}
+
+
+.bio {
+    padding-top: 2em;
+
+
+}
+
+.bio-pic-left {
+    float: left;
+    padding: 0 1em 1em 0;
+    height: 250px;
+}
+
+.bio-pic-right {
+    float: right;
+    padding: 0 0 1em 1em;
     height: 250px;
 }
 
 @media only screen and (min-width: 800px) {
-
     .top-box {
         float: left;
     }
+    .home-content, .bio {
+        width: 80%;
+        margin: auto;
+    }
+}
 
+
+.contacts__pic {
+    float: left;
+}
+
+.contacts__info {
+    float: left;
+    margin-left: 1em;
+}
+
+
+.omega-nav-menu a {
+    color: #aaaaaa;
+}
+
+.loc__menus {
+    text-align: center;
+}
+
+.loc__menus ul {
+    display: inline-block;
+    text-align: left;
+    margin: 1em 0 0 1em;
+    vertical-align: top;
+}
+
+.loc__menus li {
+    list-style-type: none;
 }
