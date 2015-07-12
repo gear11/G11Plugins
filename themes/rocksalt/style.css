@@ -197,3 +197,39 @@ h1 {
 .loc__menus li {
     list-style-type: none;
 }
+
+.entry-summary > a:first-child {
+    display: block;
+    overflow: hidden;
+    max-height: 400px;
+}
+
+.entry-summary .thumbnail {
+
+}
+
+.entry-summary p {
+    margin-top: 0.5em;
+}
+
+.entry-content h2 {
+    text-align: center;
+}
+
+.entry-footer {
+    display: none;
+}
+
+.comments-closed {
+    display: none;
+}
+
+.entry-wrap {
+    padding: 5px;
+    border-bottom: 1px solid silver;
+}
+
+article.entry {
+    margin-top: 1em;
+    margin-bottom: 0;
+}

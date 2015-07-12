@@ -1,0 +1,12 @@
+#g11_customer_quote {
+    width: 100%;
+    height: 200px;
+}
+
+.g11_customer_name {
+    font-weight: normal;
+}
+
+.g11_customer_loc {
+    font-style: italic;
+}

@@ -1,0 +1,151 @@
+/*
+Theme Name: LayingItDown
+Description: A Child Theme of Omega
+Template: omega
+*/
+
+@import url(../omega/style.css);
+
+
+.wrapX {
+    width: 100%;
+    max-width: 100%;
+}
+
+.wrap {
+    max-width: 900px;
+}
+
+.content {
+    width: 100%;
+}
+
+.site-header {
+    background: #ffffff;
+}
+.site-header > .wrap {
+    padding: 0;
+}
+
+.site-title {
+    margin: 0;
+}
+
+.omega-nav-menu {
+    font-family: Georgia, serif;
+    background: none repeat scroll 0 0 #3f74b0;
+}
+
+.omega-nav-menu a {
+    color: white;
+    padding: 15px;
+}
+
+.clearFix {
+    clear: both;
+}
+
+.blurbs-outer {
+  text-align: center;
+}
+
+@media only screen and (max-width: 899px) {
+    .blurbs {
+        width: 292px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .site-header {
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .blurbs {
+        width: 900px;
+    }
+}
+
+.blurbs {
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.blurb {
+    border: 2px solid #eeeeee;
+    float: left;
+    width: 290px;
+    height: 310px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.blurb .badge {
+    text-align: center;
+}
+
+.blurb p {
+    text-align: left;
+}
+
+.blurb a {
+    text-decoration: none;
+}
+
+.metaslider {
+    margin: 0 auto;
+}
+
+.site-inner {
+    padding: 0;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+h4 {
+    font-family: Georgia, serif;
+    text-align: center;
+}
+
+.entry-content p {
+    margin: 1em;
+}
+
+.entry-header {
+    margin-top: 10px;
+}
+
+.badges .badge {
+    float: left;
+    height: 175px;
+    margin: 0 5px;
+}
+
+.badges .badge img {
+    max-width: 150px;
+    max-height: 175px;
+}
+
+#menu-icon {
+    clear: left;
+}
+
+.archive-title {
+    display: none;
+}
+
+.g11_testimonial .entry-title {
+    font-family: Georgia, serif;
+    quotes: "\201C""\201D""\2018""\2019";
+    font-size: 18pt;
+}
+
+article.g11_testimonial {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

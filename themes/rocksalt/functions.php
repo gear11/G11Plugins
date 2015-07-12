@@ -18,7 +18,7 @@ function rocksalt_footer_insert() {
 	return '<p class="copyright">' . __( 'Copyright &#169; [the-year] [site-link].', 'omega' ) . '</p>';
 }
 
-$frontPage = get_option('page_on_front');
+//$frontPage = get_option('page_on_front');
 
 function rocksalt_theme_setup() {
 	// Custom background
@@ -33,6 +33,8 @@ function rocksalt_theme_setup() {
 	remove_filter( 'omega_footer_insert', 'omega_default_footer_insert' );
 	add_filter( 'omega_footer_insert', 'rocksalt_footer_insert' );
 
+    set_theme_mod( 'post_thumbnail' , true);
+
 }
 
 add_action( 'after_setup_theme', 'rocksalt_theme_setup', 11 );
@@ -41,7 +43,8 @@ add_action( 'after_setup_theme', 'rocksalt_theme_setup', 11 );
  * All pages have ROCKSALT in the title
  */
 function rocksalt_wp_title( $title, $sep ) {
-	return (strpos(strtolower($title), 'rocksalt') === false) ? "ROCKSALT $title" : $title;
+    $site_title = get_bloginfo('name');
+	return (strpos($title, $site_title) === false) ? "$site_title : $title" : $title;
 }
 add_filter( 'wp_title', 'rocksalt_wp_title', 10, 2 );
 
@@ -64,4 +67,12 @@ add_action( 'wp_enqueue_scripts', 'rocksalt_scripts' );
 
 
 
+//add_filter( 'get_the_excerpt', 'rocksalt_excerpt' );
+/**
+add_filter( 'post_thumbnail_html', 'my_post_image_html', 10, 3 );
 
+function my_post_image_html( $html, $post_id, $post_image_id ) {
+    $html = '<a href="' . get_permalink( $post_id ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '">' . $html . '</a>';
+    return $html;
+}
+ * */
