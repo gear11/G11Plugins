@@ -34,6 +34,7 @@ class G11PostsPlugin {
      */
     private function setup_actions() {
 
+        add_action( 'after_setup_theme', array($this, 'custom_theme_setup'));
         add_action( 'init', array( $this, 'register_post_types' ) );
         add_action( 'admin_init', array( $this, 'admin_init') );
         add_action( 'save_post', array($this, 'save_post_details'));
@@ -59,6 +60,13 @@ class G11PostsPlugin {
         wp_enqueue_style( 'g11-posts-styles', G11_POSTS_ASSETS_URL . '/style.css');
     }
 
+    public function custom_theme_setup() {
+        //add_theme_support('post-thumbnails');
+        remove_theme_support( 'post-thumbnails' );
+        add_theme_support( 'post-thumbnails', array('g11_project') );
+
+    }
+
     /**
      * Register testimonial post type
      */
@@ -79,6 +87,7 @@ class G11PostsPlugin {
                 'rewrite' => array('slug' => 'projects'),
                 'menu_icon'   => 'dashicons-hammer',
                 'menu_position' => 0, // Above posts
+                //'supports' => [ 'title', 'editor', 'thumbnail ']
             )
         );
 

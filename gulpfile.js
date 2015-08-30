@@ -11,6 +11,52 @@ var paths = {
   theme_glob: './themes/**'
 };
 
+var lidProjectSpec = {
+    "path": "/wp/lid2",
+    "plugins": [
+        "g11-posts"
+    ],
+    "themes": [
+        "layingitdown"
+    ]
+};
+
+function generateLocalTaskFunctionFor(projectSpec) {
+    var dest = projectSpec.path;
+    var plugins = projectSpec.plugins;
+    var themes = projectSpec.themes;
+
+    return function() {
+        for (var i = 0; i < plugins.length; ++i) {
+            gulp.src('./'+plugins[i]+'/**').pipe(gulp.dest(dest + '/wp-content/plugins/' + plugins[i]));
+        }
+        for (i = 0; i < themes.length; ++i) {
+            gulp.src('./themes/'+themes[i]+'/**').pipe(gulp.dest(dest + '/wp-content/themes/' + themes[i]));
+        }
+    };
+}
+
+function generateWatchTaskFunctionFor(projectSpec, tasks) {
+    var plugins = projectSpec.plugins;
+    var themes = projectSpec.themes;
+
+    onChange = function(event) {
+        console.log('File '+event.path+' was '+event.type+', running tasks...');
+    };
+
+    return function() {
+        for (var i = 0; i < plugins.length; ++i) {
+            gulp.watch('./'+plugins[i]+'/**', tasks).on('change', onChange);
+        }
+        for (i = 0; i < themes.length; ++i) {
+            gulp.watch('./themes/'+themes[i]+'/**', tasks).on('change', onChange);
+        }
+    }
+}
+
+gulp.task('lid_local', generateLocalTaskFunctionFor(lidProjectSpec));
+gulp.task('lid_watch', generateWatchTaskFunctionFor(lidProjectSpec, ['lid_local']));
+
 gulp.task('zip', function () {
     gulp.src('./g11-carousel*/**')
         .pipe(zip('g11-carousel-'+VERSION+'.zip'))
@@ -47,5 +93,5 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['zip']);
+gulp.task('default', ['lid_watch']);
 

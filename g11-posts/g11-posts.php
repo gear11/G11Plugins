@@ -24,5 +24,5 @@ if ( ! class_exists( 'G11Posts' ) ) {
     require_once('lib/G11PostsPlugin.php');
 
 }
-
+// Foobar
 add_action( 'plugins_loaded', array( 'G11PostsPlugin', 'init' ), 10 );

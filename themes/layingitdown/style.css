@@ -1,16 +1,42 @@
 /*
 Theme Name: LayingItDown
-Description: A Child Theme of Omega
+Description: A Child Theme of Omega!
 Template: omega
 */
 
 @import url(../omega/style.css);
 
+/**
+ * Undo mobile responsive menu
+ */
+@media only screen and (max-width: 800px) {
 
-.wrapX {
-    width: 100%;
-    max-width: 100%;
+    .menu-icon {
+        display: none;
+    }
+
+    ul.menu-primary {
+        display: block;
+        background-color: white;
+    }
+
+    ul.menu-primary a {
+        border:none;
+        padding: 0;
+    }
+
+    .omega-nav-menu li.menu-item {
+        text-align: center;
+        width: 150px;
+        display: inline-block;
+        background-color: #3f74b0;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
 }
+
 
 .wrap {
     max-width: 900px;
@@ -45,58 +71,9 @@ Template: omega
     clear: both;
 }
 
-.blurbs-outer {
-  text-align: center;
-}
 
-@media only screen and (max-width: 899px) {
-    .blurbs {
-        width: 292px;
-    }
-}
 
-@media only screen and (max-width: 750px) {
-    .site-header {
-        margin-top: 50px;
-    }
-}
 
-@media only screen and (min-width: 900px) {
-    .blurbs {
-        width: 900px;
-    }
-}
-
-.blurbs {
-    margin: 0 auto;
-    box-sizing: content-box;
-}
-
-.blurb {
-    border: 2px solid #eeeeee;
-    float: left;
-    width: 290px;
-    height: 310px;
-    text-align: center;
-    padding: 10px;
-    margin: 0 5px;
-}
-
-.blurb .badge {
-    text-align: center;
-}
-
-.blurb p {
-    text-align: left;
-}
-
-.blurb a {
-    text-decoration: none;
-}
-
-.metaslider {
-    margin: 0 auto;
-}
 
 .site-inner {
     padding: 0;
@@ -112,7 +89,12 @@ h4 {
     text-align: center;
 }
 
-.entry-content p {
+h3, h2 {
+    margin-left: 16px;
+    margin-right:  16px;
+}
+
+.entry-content p, .entry-summary p {
     margin: 1em;
 }
 
@@ -120,13 +102,34 @@ h4 {
     margin-top: 10px;
 }
 
-.badges .badge {
-    float: left;
-    height: 175px;
-    margin: 0 5px;
+.awards__header {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.badges .badge img {
+#awards__badges {
+    width: 100%;
+}
+
+#awards__badges .blurb {
+    width: 200px;
+    height: 200px;
+
+}
+
+@media only screen and (max-width: 450px) {
+    #awards__badges .blurb {
+        float: none;
+        margin: 5px auto;
+    }
+}
+
+#awards__badges .badge {
+    height: 175px;
+    margin: auto;
+}
+
+#awards__badges .badge img {
     max-width: 150px;
     max-height: 175px;
 }
@@ -148,4 +151,251 @@ h4 {
 article.g11_testimonial {
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.soliloquy-controls-direction a.disabled {
+    display: none;
+}
+
+#home__tiles_wrap {
+    width: 100%;
+}
+#home__tiles {
+    max-width: 725px;
+    margin: 25px auto 50px;
+}
+
+.tile, .tile a {
+    color: white;
+}
+
+.tile {
+    margin-top: 25px;
+    display: inline-block;
+    max-width: 350px;
+    height: 175px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #3f74b0;
+}
+
+.tile_name {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.tile.c1 {
+    margin-right: 20px;
+    clear: left;
+}
+
+.tile.r1.c1, .tile.r2.c2 {
+    background-color: #80bd41;
+}
+
+@media only screen and (max-width: 742px) {
+
+    #home__tiles {
+        max-width: 350px;
+        margin: 0 5px;
+    }
+
+    .tile {
+        margin: 10px auto !important;
+    }
+
+    .tile.c1 {
+        background-color: #80bd41;
+    }
+
+    .tile.r2.c2 {
+        background-color: #3f74b0;
+    }
+}
+
+
+
+#home__blurbs {
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.blurb_wrap {
+    width: 100%;
+}
+
+.blurb {
+    display: block;
+    border: 2px solid #eeeeee;
+    float: left;
+    width: 290px;
+    height: 310px;
+    text-align: center;
+    padding: 10px;
+    margin: 0 5px 5px;
+}
+
+.blurb .badge {
+    text-align: center;
+}
+
+
+
+.blurb a {
+    text-decoration: none;
+}
+
+.blurb .badge {
+    height: 150px;
+}
+
+.blurb a:focus, .blurb a:hover {
+    color: #008CBA;
+}
+
+@media only screen and (min-width: 900px) {
+    #home__blurbs {
+        width: 900px;
+    }
+}
+
+@media only screen and (max-width: 899px) {
+    #home__blurbs {
+        width: 292px;
+    }
+}
+
+#header__houzz_logo {
+    height: 30px;
+    margin: 0 20px;
+}
+
+#header__fb_logo {
+    height: 30px;
+    margin: 0 20px;
+}
+
+#home__houzz_logo {
+    width: 150px;
+    height: 150px;
+}
+
+#awards__bbb_blurb {
+    margin: auto;
+    width: 300px;
+    float: none;
+}
+
+#awards__bbb_blurb .badge {
+   height: 170px;
+}
+
+#about__mission h3 {
+    color: white;
+    font-weight: bold;
+}
+#about__mission {
+    border-radius: 10px;
+    color: white;
+    padding: 15px 0;
+    background-color: #80bd41;
+    margin: 0 5px;
+}
+
+.about__mission_title {
+    text-align: center;
+}
+
+.about__mission_text {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 22px;
+}
+
+.about__header {
+    margin-top: 30px
+}
+
+#about__expertise iframe {
+    margin-top: 30px;
+}
+
+.process__step {
+    margin-bottom: 30px;
+}
+
+.process__step_number {
+    background-color: #8bc53f;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    padding-top:10px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-family: "Times New Roman", serif;
+    font-style: italic;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+
+.process__step_name {
+    font-weight: bold;
+    display: inline-block;
+    clear: right;
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 400px) {
+    .process__step_number {
+        font-size: 30px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .process__step_name {
+        font-size: 20px;
+        margin-left: 5px;
+    }
+}
+
+
+.process__contact {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+#contact__top {
+    max-width: 500px;
+    margin: auto;
+ }
+
+#contact__pic {
+    margin-left: 20px;
+    display: inline-block;
+    float: left;
+}
+
+#contact__info {
+    display: inline-block;
+    float: left;
+    margin-left: 20px;
+}
+
+#contact__form .wpcf7 {
+    width: 100%;
+    margin: auto;
+ }
+
+input[type="submit"] {
+    background-color: #3f74b0;
+}
+
+#contact__form textarea {
+    width: 100%;
 }
