@@ -1,0 +1,200 @@
+<html>
+<head><title>User Guide</title>
+<link rel="stylesheet" type="text/css" href="/wp-content/themes/layingitdown/style.css">
+<style type="text/css">
+    body {
+        padding: 30px 30px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    p, table, h3 {
+        margin-left: 25px;
+    }
+    a {
+        color: royalblue;
+    }
+    td {
+        padding: 5px;
+        border: 1px solid silver;
+    }
+    h2 {
+        padding-top: 50px;
+        border-top: 1px solid silver
+    }
+</style></head>
+<body>
+<p>
+<h1>User Guide for Laying It Down</h1>
+
+<p>
+    This brief guide is intended to help you manage the Laying It Down site.
+    It covers the main actions you'll probably be doing:
+</p>
+    <ul>
+        <li><a href="#general">General Tips</a></li>
+        <li><a href="#caching">Caching</a></li>
+        <li><a href="#slider">Adding and Modifying Sliders</a></li>
+        <li><a href="#projects">Adding a Project</a></li>
+        <li><a href="#testimonials">Adding a Testimonial</a></li>
+    </ul>
+
+<h2 id="general">General Tips</h2>
+<ul>
+    <li>
+        Lots of online help is available for WordPress, including comprehensive help at
+        <a href="http://codex.wordpress.org/WordPress_Quick_Start_Guide">WordPress.org</a>.
+    </li>
+    <li>
+        If you need help with something, call or e-mail
+        <a href="mailto:andy@gear11.com">andy@gear11.com</a> / 704-231-7719.
+    </li>
+    <li>
+        If you are accessing the site from a new browser and need to login, remember to
+        go to the URL http://layingitdownnc.com/wp-admin .
+    </li>
+</ul>
+
+<h2 id="caching">Caching</h2>
+<p>
+    The site includes a plugin to boost performance called W3 Total Cache.  Using this causes
+    the contents of your pages and posts to be saved and reused between users' visits to the site.
+    Since the pages are saved, the site doesn't have to compute as much, and so is much faster.
+    The downside is that updates may not be visible until you "empty the cache", which will
+    force WordPress to regenerate pages anew, picking up your edits in the process.
+</p>
+<p>
+    What this means in practice is that when you make a change to a page, project, testimonial,
+    etc. you'll typically want to empty the cache by selecting Performance / Dashboard from the
+    main Admin menu, and then clicking the "empty all caches" button.
+</p>
+<p>
+    <img src="guide9.png">
+</p>
+
+<h2 id="slider">Adding and Modifying Sliders</h2>
+<p>
+The site uses a premium slider plugin called <a href="https://soliloquywp.com/">Soliloquy</a>.
+There are lots of sliders for WordPress, but this one is very popular and relatively
+trouble free.
+</p>
+<h3>Upload any photos to your Media Library</h3>
+<p>
+You can add media from your Media Library to sliders.  It's easiest if you add the
+media before you start working with the sliders.
+</p>
+
+<h3>Click the Solioquy link</h3>
+<p>
+To make any changes to sliders, start by logging into WordPress and clicking on the
+Soliloquy link in the side menu:<br>
+    <img src="guide1.png">
+</p>
+
+<h3>Click the slider you want to modify</h3>
+<p>
+    All the sliders are shown in a table view.  Click on the Title of the one you want to modify,
+    or click the Add New button:<br>
+    <img src="guide2.png">
+</p>
+
+<h3>Slider settings</h3>
+<p>
+    Each time a new slider is created, you should update its settings to be consistent
+    with other sliders on the site. Most of the settings are okay. The settings that need
+    to be changed are as follows:
+</p>
+    <table>
+        <tr><th>Tab</th><th>Property</th><th>Value</th></tr>
+        <tr><td>Config</td><td>Slider Dimensions</td><td>960 x 600</td></tr>
+        <tr><td>Config</td><td>Show Slider Control Nav?</td><td>unchecked</td></tr>
+        <tr><td>Mobile</td><td>Mobile Dimensions</td><td>600 x 400</td></tr>
+        <tr><td>Thumbnails</td><td>Enable Slider Thumbnails?</td><td>checked</td></tr>
+    </table>
+
+
+<h3>Add/remove/reorder photos</h3>
+<ul>
+    <li>Click the blue button to add photos from your library.</li>
+    <li>One added, you can reorder photos by dragging and dropping them.</li>
+    <li>Click the red X to remove a photo from the slider (don't worry, it will stay in your library).</li>
+</ul>
+<p>
+    <img src="guide3.png">
+</p>
+
+<h3>(Optional) Link the photo to a project page</h3>
+<p>
+You can optionally link a photo to another page.  This makes sense on the Home Page:
+you should link each photo to its corresponding <a href="#projects">project page</a>.  To do this,
+you need to have created the project first.  Visit the project page to get
+the URL.  The full URL for a project will be something like
+<code>http://layingitdownnc.com<b>/projects/elegant-kitchen-remodel-2/</b></code>,
+but it's simpler if you just copy the portion in bold and use that for the
+value of the <b>Hyperlink</b> field.  Remember to click Save Metadata when done.</p>
+<p>
+    <img src="guide4.png">
+</p>
+
+<h3>Click the Update button</h3>
+<p>
+    Make sure to click the Update button in order to save your changes!
+</p>
+<p>
+    <img src="guide5.png">
+</p>
+
+<h2 id="projects">Adding a Project</h2>
+<p>
+Projects are the normal WordPress "blog post" type, but relabeled as "Project" to align with how
+its used on the site.  Anytime you've completed a job you want to show off, it would be good to
+add to the site.
+</p>
+
+<p>
+    The Portfolio link on the site contains all of the projects.  Any time you add a Project, it goes to the
+    top of the Portfolio page.
+</p>
+<h3>Create a Slider for the Project</h3>
+<p>
+    Before you add a Project, you should create a new Slider that holds the photos for the Project
+    (see <a href="#slider">Adding and Modifying Sliders</a>.
+</p>
+<h3>Create a new Project item</h3>
+<p>
+    To create a new Project, click the Projects link in the main Dashboard side menu, then
+    select the Add New Project option.
+    You can also edit existing Projects, for example to change their title.  You can control the ordering
+    by editing the project and changing its Publish Date.
+<p>
+<p>
+    <img src="guide6.png">
+</p>
+<h3>Add the Project Slider</h3>
+<p>
+    The Project post can include any description you want, but most likely you'll just want to include
+    the Slider you created for the Project.  Just click the Add Slider button and you'll see a dialog
+    to select the Slider.  Once the slider is selected, click the Publish or Update button.
+</p>
+<p>
+    <img src="guide7.png">
+</p>
+
+<h2 id="testimonials">Adding a Testimonial</h2>
+<p>
+A Testimonial is a custom post type used to display a quote or other content for a happy customer.
+Like Projects, Testimonials are ordered with the most recently added at the top, but you can
+change this by modifying the Publish Date.
+</p>
+<h3>Create a new Testimonial item</h3>
+<p>
+    To create a new Testimonial, click the Testimonials link in the main Dashboard side menu, and select the
+    Add New option.  Fill out the fields as described.  The full Customer Quote will appear on the
+    Testimonials page.  You can add more information in the editor field below, which will be
+    shown if the user clicks the item.
+</p>
+<p>
+    <img src="guide8.png">
+</p>
+
+
+</body>
+</html>

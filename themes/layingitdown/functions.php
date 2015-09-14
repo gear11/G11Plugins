@@ -34,6 +34,8 @@ function lid_footer_insert( ) {
 }
 
 function lid_branding() {
+
+
     echo '<div class="' . omega_apply_atomic( 'title_area_class', 'title-area') .'">';
 
     /* Get the site title.  If it's not empty, wrap it with the appropriate HTML. */
@@ -53,27 +55,27 @@ function lid_branding() {
     echo omega_apply_atomic( 'site_title', $title );
 
     /* Get the site description.  If it's not empty, wrap it with the appropriate HTML. */
-    if ( $desc = get_bloginfo( 'description' ) )
-        $desc = sprintf( '<h3 class="site-description"><span>%1$s</span></h3>', $desc );
+    //if ( $desc = get_bloginfo( 'description' ) )
+     //   $desc = sprintf( '<h3 class="site-description"><span>%1$s</span></h3>', $desc );
 
     echo '<h3 class="site-description">';
 
 
     // Phone number
-    echo 'Contact us: <a itemprop="telephone" href="tel:+1-704-289-7920">(704) 289-7920</a>&nbsp;';
+    echo '<span id="header__phone">Contact:&nbsp;<a itemprop="telephone" href="tel:+1-704-289-7920">(704) 289-7920</a></span>';
 
     // Houzz logo
     $houzz_uri = BASE_THEME_URI . '/houzzlogo.png';
-    echo '<a href=http://www.houzz.com/pro/layingitdown/laying-it-down-inc" target="_blank" title="Find us on Houzz">'
-        ."<img id=\"header__houzz_logo\" src=\"$houzz_uri\"></a>";
+    echo '<span id="header__houzz_logo"><a href=http://www.houzz.com/pro/layingitdown/laying-it-down-inc" target="_blank" title="Find us on Houzz">'
+        ."<img src=\"$houzz_uri\"></a></span>";
 
     // Facebook
-    echo '&nbsp;<span id="header__fb_logo"><a href="https://www.facebook.com/pages/Laying-It-Down/150003541718076" target="_blank" title="Find us on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a></span>';
+    echo '<span id="header__fb_logo"><a href="https://www.facebook.com/pages/Laying-It-Down/150003541718076" target="_blank" title="Find us on Facebook"><i class="fa fa-facebook-square fa-2x"></i></a></span>';
 
     echo '</h3>';
 
     /* Display the site description and apply filters for developers to overwrite. */
-    echo omega_apply_atomic( 'site_description', $desc );
+    //echo omega_apply_atomic( 'site_description', $desc );
 
     echo '</div>';
 }
@@ -85,6 +87,29 @@ function lid_scripts() {
     wp_enqueue_style('font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css');
 }
 
+
+
+function lid_help( $wp_admin_bar ) {
+    $args = array(
+        'id'    => 'lid_help',
+        'title' => 'User Guide',
+        'href'  => BASE_THEME_URI . '/guide/',
+        'meta'  => array( 'class' => 'my-toolbar-page' )
+    );
+    $wp_admin_bar->add_node( $args );
+}
+
+function lid_enqueue_category_styles() {
+    if (!is_page() && !is_single()) {
+        wp_enqueue_style( 'g11-posts-category-styles', BASE_THEME_URI . '/style-category.css');
+    }
+}
+function lid_archive_header() {
+    if (is_home()) {
+        echo '<div class="archive_header">Select a project to see more photos</div>';
+    }
+
+}
 
 function lid_theme_setup() {
 
@@ -117,6 +142,13 @@ function lid_theme_setup() {
     //add_theme_support( 'post-thumbnails' );
 	add_filter( 'wp_title', 'lid_wp_title', 10, 2 );
 
+    add_action( 'admin_bar_menu', 'lid_help', 999 );
+
+    //remove_theme_support( 'post-thumbnails' );
+    //add_theme_support( 'post-thumbnails' , array('g11_testimonial', 'g11_project', 'post'));
+    add_action( 'loop_start', 'lid_enqueue_category_styles');
+
+    add_action( 'omega_before_content', 'lid_archive_header' );
 }
 
 add_action( 'after_setup_theme', 'lid_theme_setup', 11 );

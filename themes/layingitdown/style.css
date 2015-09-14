@@ -94,6 +94,10 @@ h3, h2 {
     margin-right:  16px;
 }
 
+.entry-header .entry-meta {
+    display: none;
+}
+
 .entry-content p, .entry-summary p {
     margin: 1em;
 }
@@ -142,16 +146,17 @@ h3, h2 {
     display: none;
 }
 
+.entry.post, .entry.g11_testimonial {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 .g11_testimonial .entry-title {
     font-family: Georgia, serif;
     quotes: "\201C""\201D""\2018""\2019";
     font-size: 18pt;
 }
 
-article.g11_testimonial {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
 
 .soliloquy-controls-direction a.disabled {
     display: none;
@@ -266,14 +271,21 @@ article.g11_testimonial {
     }
 }
 
+#header__phone {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
 #header__houzz_logo {
+    margin: 0 15px 10px;
+}
+
+#header__houzz_logo img {
     height: 30px;
-    margin: 0 20px;
 }
 
 #header__fb_logo {
-    height: 30px;
-    margin: 0 20px;
+    margin: 0 15px 10px;
 }
 
 #home__houzz_logo {
@@ -329,12 +341,13 @@ article.g11_testimonial {
 .process__step_number {
     background-color: #8bc53f;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    padding-top:10px;
+    width: 50px;
+    height: 50px;
+    padding-top: 0.5em;
+    margin-left: 5px;
     text-align: center;
     color: white;
-    font-size: 50px;
+    font-size: 20px;
     font-family: "Times New Roman", serif;
     font-style: italic;
     font-weight: bolder;
@@ -352,9 +365,9 @@ article.g11_testimonial {
 
 @media only screen and (max-width: 400px) {
     .process__step_number {
-        font-size: 30px;
-        width: 60px;
-        height: 60px;
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
     }
 
     .process__step_name {
@@ -371,12 +384,30 @@ article.g11_testimonial {
 }
 
 #contact__top {
-    max-width: 500px;
-    margin: auto;
+    vertical-align: top;
+    margin-bottom: 2em;
+}
+
+#contact__general {
+    display: inline-block;
+    float: left;
+    margin-left: 1em;
+
  }
 
+#contact__jobs {
+    display: inline-block;
+    max-width: 440px;
+
+}
+
+#contact__jobs_inner {
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin: 1em;
+}
+
 #contact__pic {
-    margin-left: 20px;
     display: inline-block;
     float: left;
 }
@@ -384,8 +415,9 @@ article.g11_testimonial {
 #contact__info {
     display: inline-block;
     float: left;
-    margin-left: 20px;
 }
+
+
 
 #contact__form .wpcf7 {
     width: 100%;
@@ -398,4 +430,18 @@ input[type="submit"] {
 
 #contact__form textarea {
     width: 100%;
+}
+
+/* Not working?  Needed to change WP by hand */
+.dashicons-admin-post:before,
+.dashicons-format-standard:before {
+    content: "\f308" !important;
+}
+
+.archive_header {
+    display: block;
+    text-align: center;
+    padding-top: 1em;
+    font-style: italic;
+    font-size: 14pt;
 }

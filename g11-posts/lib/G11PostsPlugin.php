@@ -19,6 +19,7 @@ class G11PostsPlugin {
         $this->setup_actions();
         $this->setup_filters();
         $this->enqueue_styles();
+        $this->override_post_type_name();
     }
 
     /**
@@ -33,9 +34,9 @@ class G11PostsPlugin {
      * Add action hooks
      */
     private function setup_actions() {
-
         add_action( 'after_setup_theme', array($this, 'custom_theme_setup'));
         add_action( 'init', array( $this, 'register_post_types' ) );
+        add_action( 'init', array( $this, 'customize_post_type' ) );
         add_action( 'admin_init', array( $this, 'admin_init') );
         add_action( 'save_post', array($this, 'save_post_details'));
         add_action( 'manage_posts_custom_column' , array($this, 'manage_posts_custom_column'), 10, 2 );
@@ -62,16 +63,72 @@ class G11PostsPlugin {
 
     public function custom_theme_setup() {
         //add_theme_support('post-thumbnails');
-        remove_theme_support( 'post-thumbnails' );
-        add_theme_support( 'post-thumbnails', array('g11_project') );
+        //remove_theme_support( 'post-thumbnails' );
+        //add_theme_support( 'post-thumbnails', array('g11_project') );
+        //remove_theme_support('tags');
 
     }
+
+    public function override_post_type_name() {
+        add_action( 'init', array($this, 'change_post_type_labels' ));
+        add_action( 'admin_menu', array($this, 'change_post_menu_text'));
+    }
+
+    public function customize_post_type() {
+        remove_post_type_support(  'post', 'revisions' ) ;
+        remove_post_type_support(  'post', 'trackbacks' ) ;
+        remove_post_type_support(  'post', 'comments' ) ;
+        remove_post_type_support(  'post', 'custom-fields' ) ;
+        remove_post_type_support(  'post', 'excerpt' ) ;
+        remove_post_type_support(  'post', 'author' ) ;
+        register_taxonomy('post_tag', array());
+    }
+
+// http://www.paulund.co.uk/change-posts-text-in-admin-menu
+    function change_post_type_labels() {
+        global $wp_post_types;
+
+        $singular = "Project";
+        $plural   = "Projects";
+
+        $post_type = &$wp_post_types['post'];
+
+        $post_type->menu_icon = 'dashicons-hammer';
+        // Get the post labels
+        $postLabels = &$post_type->labels;
+        $postLabels->name          = __($plural);
+        $postLabels->singular_name = __($singular);
+        $postLabels->add_new_item  = __("Add New $singular");
+        $postLabels->edit_item     = __("Edit $singular");
+        $postLabels->new_item      = __("New $singular");
+        $postLabels->view_item     = __("View $singular");
+    }
+
+    function change_post_menu_text() {
+
+        global $menu;
+        global $submenu;
+
+        $singular = "Project";
+        $plural   = "Projects";
+
+
+        // Change menu item
+        $menu[5][0] = $plural;
+
+        // Change post submenu
+        $submenu['edit.php'][5][0] = $plural;
+        $submenu['edit.php'][10][0] = "Add New $singular";
+        //$submenu['edit.php'][16][0] = 'Articles Tags';
+    }
+
+
 
     /**
      * Register testimonial post type
      */
     public function register_post_types() {
-
+/*
         register_post_type( 'g11_project',
             array(
                 'labels' => array(
@@ -84,12 +141,19 @@ class G11PostsPlugin {
                 ),
                 'public' => true,
                 'has_archive' => true,
+                'hierarchical' => true,
+                'show_ui' => true,
                 'rewrite' => array('slug' => 'projects'),
                 'menu_icon'   => 'dashicons-hammer',
                 'menu_position' => 0, // Above posts
-                //'supports' => [ 'title', 'editor', 'thumbnail ']
+                'capability_type' => 'post',
+                'taxonomies' => array('tag', 'category'),
+                'supports' => array( 'title', 'editor', 'thumbnail ')
             )
         );
+
+        add_post_type_support(  'g11_project', array( 'thumbnail ' )) ;
+*/
 
         register_post_type( 'g11_testimonial',
             array(
@@ -105,7 +169,7 @@ class G11PostsPlugin {
                 'has_archive' => true,
                 'rewrite' => array('slug' => 'testimonials'),
                 'menu_icon'   => 'dashicons-smiley',
-                'menu_position' => 1, // Above posts
+                'menu_position' => 2, // Above posts
             )
         );
 
